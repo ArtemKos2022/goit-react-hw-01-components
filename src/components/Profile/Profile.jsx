@@ -1,5 +1,6 @@
+import PropTypes from 'prop-types';
 import {
-    Profile,
+    User,
     Description,
     Photo,
     UserName,
@@ -11,19 +12,28 @@ import {
     Quantity,
 } from './Profile.styled';
 
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
-export const Card = ({ userData }) => {
-    const {
-        username,
-        tag,
-        location,
-        avatar,
-        stats: { followers, views, likes },
-    } = userData;
+// export const Card = ({ userData }) => {
+//     const {
+//         username,
+//         tag,
+//         location,
+//         avatar,
+//         stats: { followers, views, likes },
+//     } = userData;
 
+export const Profile = ({
+    user:{
+    avatar,
+    username,
+    tag,
+    location,
+    stats: { followers, views, likes },
+},
+}) => {
     return (
-        <Profile>
+        <User>
             <Description>
                 <Photo src={avatar} talt={username} />
                 <UserName>{username}</UserName>
@@ -47,12 +57,12 @@ export const Card = ({ userData }) => {
                     <Quantity>{likes}</Quantity>
                 </Item>
             </Stats>
-        </Profile>
+        </User>
     );
 };
 
-Card.propTypes = {
-    userData: PropTypes.shape({
+Profile.propTypes = {
+    user: PropTypes.shape({
         username: PropTypes.string.isRequired,
         tag: PropTypes.string.isRequired,
         location: PropTypes.string.isRequired,

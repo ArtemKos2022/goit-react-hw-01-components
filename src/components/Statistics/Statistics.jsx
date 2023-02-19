@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 export const Section = ({ statis, title }) => {
     return (
         <Statistics>
-        {title ?<Title>{title}</Title>: "" }
+        {title && <Title>{title}</Title>}
             <List>
                 {statis.map(({ id, label, percentage }) => (
                     <Item key={id}>
